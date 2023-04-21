@@ -71,7 +71,7 @@ namespace UdemyRealWordUnitTest.Web.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Index");
             }
 
             var product = await _repository.GetByIdAsync((int)id);
@@ -96,21 +96,7 @@ namespace UdemyRealWordUnitTest.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    await _repository.UpdateAsync(product);
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists(product.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                await _repository.UpdateAsync(product);
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
@@ -120,15 +106,11 @@ namespace UdemyRealWordUnitTest.Web.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var product = await _repository.GetByIdAsync((int)id);
             if (product == null)
-            {
                 return NotFound();
-            }
 
             return View(product);
         }
@@ -138,13 +120,8 @@ namespace UdemyRealWordUnitTest.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (await _repository.GetAllAsync() == null)
-                return Problem("Entity set 'UdemyUnitTestContext.Products'  is null.");
-
             var product = await _repository.GetByIdAsync((int)id);
-            if (product != null)
-                await _repository.DeleteAsync(product);
-
+            await _repository.DeleteAsync(product);
             return RedirectToAction(nameof(Index));
         }
 
