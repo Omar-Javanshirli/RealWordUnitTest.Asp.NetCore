@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyRealWordUnitTest.Web", "UdemyRealWordUnitTest.Web\UdemyRealWordUnitTest.Web.csproj", "{67FB9DBA-86E0-4DB2-98E3-2AD902BBFEEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdemyRealWordUnitTest.Web", "UdemyRealWordUnitTest.Web\UdemyRealWordUnitTest.Web.csproj", "{67FB9DBA-86E0-4DB2-98E3-2AD902BBFEEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyRealWordUnitTest.Test", "UdemyRealWordUnitTest.Test\UdemyRealWordUnitTest.Test.csproj", "{B6DED7ED-7945-4278-A62D-43E29B0C0267}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdemyRealWordUnitTest.Test", "UdemyRealWordUnitTest.Test\UdemyRealWordUnitTest.Test.csproj", "{B6DED7ED-7945-4278-A62D-43E29B0C0267}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{5CF21D9D-666A-42D6-98C7-6B5E7BEE2737}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile.txt = Dockerfile.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
